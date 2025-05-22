@@ -26,11 +26,11 @@ def medir_tempo_execucao(set_, target, rep=30):
         "desvio_padrao_s": np.std(tempos)
     }
 
-entrada_pequena = list(range(1, 6))   
+entrada_pequena = list(range(1, 19))   
 
 alvo_pequeno = sum(entrada_pequena) // 2
 
-entrada_media = list(range(1, 16))        
+entrada_media = list(range(1, 26))        
 alvo_medio = sum(entrada_media) // 2
 
 entrada_grande = list(range(1, 34))        
@@ -41,14 +41,14 @@ resultado_medio = medir_tempo_execucao(entrada_media, alvo_medio)
 resultado_grande = medir_tempo_execucao(entrada_grande, alvo_grande)
 
 df_tempos_ajustado = pd.DataFrame([
-    {"categoria": "Pequena (n=5)", **resultado_pequeno},
-    {"categoria": "Media (n=15)", **resultado_medio},
+    {"categoria": "Pequena (n=18)", **resultado_pequeno},
+    {"categoria": "Media (n=25)", **resultado_medio},
     {"categoria": "Grande (n=33)", **resultado_grande}
 ])
 
 df_tempos_ajustado["categoria"] = [
-    "Pequena (n=5)",
-    "Média (n=15)",
+    "Pequena (n=18)",
+    "Média (n=25)",
     "Grande (n=33)"
 ]
 

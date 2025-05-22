@@ -44,16 +44,18 @@ void medir_execucao(double* media, double* desvio, int set[], int n, int target)
 
 int main() {
     double mean_p, std_p, mean_m, std_m, mean_g, std_g;
+    
+    int pequena[18];
+    for (int i = 0; i < 18; i++) pequena[i] = i + 1;
+    int alvo_pequena = calcular_soma(pequena, 18) / 2;
+    medir_execucao(&mean_p, &std_p, pequena, 18, alvo_pequena);
 
-    int pequena[] = {1, 2, 3, 4, 5};
-    int n_pequena = sizeof(pequena) / sizeof(pequena[0]);
-    int alvo_pequena = calcular_soma(pequena, n_pequena) / 2;
-    medir_execucao(&mean_p, &std_p, pequena, n_pequena, alvo_pequena);
+    int media[25];
+    for (int i = 0; i < 33; i++) media[i] = i + 1;
+    int n_media = sizeof(media) / sizeof(media[0]);
+    int alvo_media = calcular_soma(media, n_media) / 2;
+    medir_execucao(&mean_m, &std_m, media, n_media, alvo_media);
 
-    int media[15];
-    for (int i = 0; i < 15; i++) media[i] = i + 1;
-    int alvo_media = calcular_soma(media, 15) / 2;
-    medir_execucao(&mean_m, &std_m, media, 15, alvo_media);
 
     int grande[33];
     for (int i = 0; i < 33; i++) grande[i] = i + 1;
